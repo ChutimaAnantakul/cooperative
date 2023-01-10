@@ -1,0 +1,76 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+
+    ระบบตรวจสอบรายวิชาตกค้างของนักศึกษา
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <div *ngFor="let list of lists$ | async | slice:5:6; let i=index">
+            <img class="avatar mat-elevation-z8" src="{{list.student_img}}" />
+
+            <h4 class="name">{{list.student_name}}</h4>
+            <h3 class="designation">{{list.student_course}}</h3>
+        </div>
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="SubmitdDataOne()" routerLink="">
+            <mat-icon>profile</mat-icon>
+            <span>โปรไฟล์</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataTwo()" routerLink="">
+            <mat-icon>main</mat-icon>
+            <span>หน้าหลัก</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataThree()" routerLink="">
+            <mat-icon>totalcourse</mat-icon>
+            <span>รายวิชาทั้งหมด</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataFour()" routerLink="">
+            <mat-icon>passcourse</mat-icon>
+            <span>รายวิชาที่ผ่าน</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataFive()" routerLink="">
+            <mat-icon>faultcourse</mat-icon>
+            <span>รายวิชาที่ขาด</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Log-out</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <div class="row">
+                <div class="p2">Profile</div>
+                <div class="tt" *ngFor="let list of lists$ | async | slice:5:6; let i=index">
+                    <p>ชื่อ - สกุล : {{list.student_name}} &nbsp;&nbsp;&nbsp;&nbsp; รหัสนักศึกษา :
+                        {{list.student_code}} &nbsp;&nbsp;&nbsp;&nbsp; ชั้นปี : {{list.student_class}}</p>
+                    <p>สำนักวิชา : {{list.student_school_of}} &nbsp;&nbsp;&nbsp;&nbsp; หลักสูตร :
+                        {{list.student_course}}</p>
+
+                </div>
+                <div class="tt" *ngFor="let profile of profile$ | async | slice:1:2; let i=index">
+                    <p>อาจารย์ที่ปรึกษา : {{profile.teacher_name}}
+                    </p>
+                </div>
+                <img class="imgpic" *ngFor="let list of lists$ | async | slice:5:6; let i=index"
+                    src="{{list.student_img}}">
+
+            </div>
+
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

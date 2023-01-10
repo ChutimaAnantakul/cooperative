@@ -1,0 +1,44 @@
+
+  .infix1 {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 180px;
+    background: #e6e9ed;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mat-raised-button {
+    margin-left: 730px;
+    margin-top: 30px;
+    background-color: blue;
+}
+
+.brand-logo {
+    margin-left: 140px;
+    margin-top: 30px;
+}
+
+.bu {
+    background-color: gray;
+    margin-top: 30px;
+    margin-left: 210px;
+    margin-bottom: 50px;
+}
+
+.content {
+    height: auto;
+    width: 500px;
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e6e9ed;
+    display: block;
+}

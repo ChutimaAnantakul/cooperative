@@ -1,0 +1,108 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+
+    ระบบตรวจสอบรายวิชาตกค้างของนักศึกษา
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+        <div *ngFor="let admin of admin$ | async">
+            <img class="avatar mat-elevation-z8" src="{{admin.admin_img}}" />
+
+            <h4 class="name">{{admin.admin_name}}</h4>
+            <!-- <p class="designation">{{admin.admin_position}}</p> -->
+        </div>
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="SubmitdDataO()" routerLink="">
+            <mat-icon>profile</mat-icon>
+            <span>โปรไฟล์</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataOne()" routerLink="">
+            <mat-icon>studyplan</mat-icon>
+            <span>สร้างแผนการเรียน</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataTwo()" routerLink="">
+            <mat-icon>course</mat-icon>
+            <span>รายวิชา</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataThree()" routerLink="">
+            <mat-icon>studentlist</mat-icon>
+            <span>รายชื่อนักศึกษา</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataFour()" routerLink="">
+            <mat-icon>teacherlist</mat-icon>
+            <span>รายชื่ออาจารย์</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Log-out</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <div class="fon">เพิ่มเกรดปัจจุบัน</div>
+            <div class="row">
+                <mat-form-field class="sel" appearance="fill">
+                    <mat-select [(value)]="selected">
+                        <mat-option value="option">ปีการศึกษา</mat-option>
+                        <mat-option value="option1">2563</mat-option>
+                        <mat-option value="option2">2564</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="sel2" appearance="fill">
+                    <mat-select [(value)]="selected">
+                        <mat-option value="option">ภาคการศึกษา</mat-option>
+                        <mat-option value="option1">1</mat-option>
+                        <mat-option value="option2">2</mat-option>
+                        <mat-option value="option2">3</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="tt">
+                <p>รหัสวิชา :
+                    <mat-form-field class="infix" appearance="fill">
+                        <!-- <mat-label>Favorite food</mat-label> -->
+                        <input matInput placeholder="กรอกรหัสวิชา">
+                    </mat-form-field>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    ชื่อวิชา :
+                    <mat-form-field class="infix" appearance="fill">
+                        <!-- <mat-label>Favorite food</mat-label> -->
+                        <input matInput placeholder="">
+                    </mat-form-field>
+                </p>
+            </div>
+            <div class="tt">
+                <p>หน่วยกิต :
+                    <mat-form-field class="infix" appearance="fill">
+                        <!-- <mat-label>Favorite food</mat-label> -->
+                        <input matInput placeholder="">
+                    </mat-form-field>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    เกรด :
+                    <mat-form-field class="infix" appearance="fill">
+                        <!-- <mat-label>Favorite food</mat-label> -->
+                        <input matInput placeholder="">
+                    </mat-form-field>
+
+                </p>
+            </div>
+            <button mat-raised-button class="bu" (click)="SubmitdDataThree()">บันทึก</button>
+
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,141 @@
+.mat-toolbar {
+    background: #004a9f;
+    color: white;
+}
+
+.mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: #002b5c;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.content {
+    height: 620px;
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    background: #e6e9ed;
+    display: block;
+}
+
+.mat-sidenav-container {
+    height: calc(100vh - 65px);
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+
+    .mat-icon {
+        margin-right: 8px;
+    }
+}
+
+.avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.designation {
+    margin-top: 1px;
+    font-size: 0.7rem;
+    color: white;
+    text-align: center;
+}
+
+.mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: white;
+}
+
+.imgpic{
+    width: 250px;
+    height: 250px;
+    margin-left: 620px;
+    margin-bottom: 30px;
+    margin-top: 160px;
+}
+
+.tt {
+    text-align: left;
+    font-size: 70%;
+    // margin-right: 1350px;
+}
+
+.infix {
+    width: 250px;
+    margin-left: 20px;
+    font-size: 60%
+}
+
+p {
+    color: black;
+    text-align: center;
+    font-size: 80%;
+    padding-left: 30px;
+}
+
+.p2 {
+    color: black;
+    text-align: center;
+    font-size: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.fon {
+    color: black;
+    text-align: center;
+    font-size: 90%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.bu {
+    background-color: gray;
+    float: right;
+    margin-right: 180px;
+    
+}
+
+.sel {
+    background-color: #e6e9ed;
+    font-size: 55%;
+    margin-left: 500px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-right: 40px;
+    width: 160px;
+}
+
+.sel2 {
+    background-color: #e6e9ed;
+    font-size: 55%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-right: 50px;
+    width: 180px;
+}
+

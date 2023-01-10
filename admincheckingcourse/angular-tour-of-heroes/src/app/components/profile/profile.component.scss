@@ -1,0 +1,101 @@
+.mat-toolbar {
+    background: #004a9f;
+    color: white;
+}
+
+.mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: #002b5c;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.content {
+    height: auto;
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    background: #e6e9ed;
+    display: block;
+}
+
+.mat-sidenav-container {
+    height: calc(100vh - 65px);
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+
+    .mat-icon {
+        margin-right: 8px;
+    }
+}
+
+.avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    margin-top: 10px;
+    font-weight: normal;
+}
+
+.designation {
+    margin-top: 1px;
+    font-size: 0.7rem;
+    color: white;
+    text-align: center;
+}
+
+.mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: white;
+}
+
+.imgpic{
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 260px;
+}
+
+.tt{
+    color: black;
+    text-align: center;
+    font-size: 70%;
+    margin-bottom: 20px;
+}
+
+p {
+    color: black;
+    text-align: center;
+    font-size: 80%;
+    padding-left: 30px;
+}
+
+.p2 {
+    color: black;
+    text-align: center;
+    font-size: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

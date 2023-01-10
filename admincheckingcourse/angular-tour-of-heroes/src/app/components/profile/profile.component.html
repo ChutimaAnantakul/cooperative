@@ -1,0 +1,70 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+
+    ระบบตรวจสอบรายวิชาตกค้างของนักศึกษา
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <div *ngFor="let admin of admin$ | async">
+            <img class="avatar mat-elevation-z8" src="{{admin.admin_img}}" />
+
+            <h4 class="name">{{admin.admin_name}}</h4>
+            <!-- <p class="designation">{{admin.admin_position}}</p> -->
+        </div>
+
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="SubmitdDataO()" routerLink="">
+            <mat-icon>profile</mat-icon>
+            <span>โปรไฟล์</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataOne()" routerLink="">
+            <mat-icon>studyplan</mat-icon>
+            <span>สร้างแผนการเรียน</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataTwo()" routerLink="">
+            <mat-icon>course</mat-icon>
+            <span>รายวิชา</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataThree()" routerLink="">
+            <mat-icon>studentlist</mat-icon>
+            <span>รายชื่อนักศึกษา</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataFour()" routerLink="">
+            <mat-icon>teacherlist</mat-icon>
+            <span>รายชื่ออาจารย์</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Log-out</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <div class="row">
+                <div class="p2">Profile</div>
+                <div class="tt" *ngFor="let admin of admin$ | async">
+                    <p>ชื่อ - สกุล : {{admin.admin_name}} &nbsp;&nbsp;&nbsp;&nbsp; ตำแหน่ง :
+                        {{admin.admin_position}}</p>
+                </div>
+                <img class="imgpic" *ngFor="let admin of admin$ | async" src="{{admin.admin_img}}">
+
+            </div>
+
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

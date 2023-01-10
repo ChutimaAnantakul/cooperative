@@ -1,0 +1,94 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+
+    ระบบตรวจสอบรายวิชาตกค้างของนักศึกษา
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <div *ngFor="let profile of profile$ | async | slice:1:2; let i=index">
+            <img class="avatar mat-elevation-z8" src="{{profile.teacher_img}}" />
+
+            <h4 class="name">{{profile.teacher_name}}</h4>
+            <h3 class="designation">{{profile.teacher_course}}</h3>
+        </div>
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="SubmitdDataOne()" routerLink="">
+            <mat-icon>profile</mat-icon>
+            <span>โปรไฟล์</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataTwo()" routerLink="">
+            <mat-icon>student</mat-icon>
+            <span>รายชื่อนักศึกษา</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataSeven()" routerLink="">
+            <mat-icon>studyplan</mat-icon>
+            <span>แผนการเรียน</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Log-out</span>
+        </button>
+
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <h1>แผนการเรียน รหัส62</h1>
+            <div class="p" *ngFor="let list of lists$ | async | slice:0:1; let i=index">
+                <p>ชื่อ - สกุล : {{list.student_name}} &nbsp;&nbsp;&nbsp; รหัสนักศึกษา : {{list.student_code}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    ชั้นปี
+                    : {{list.student_class}}</p>
+                <p>สำนักวิชา : {{list.student_school_of}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; หลักสูตร :
+                    {{list.student_course}} </p>
+            </div>
+            <hr>
+            <div class="row">
+                <button mat-stroked-button color="primary" class="bu" (click)="SubmitdDataThree()">
+                    <mat-icon>keyboard_backspace</mat-icon>&nbsp;กลับ
+                </button>
+                <div class="to">รายวิชาทั้งหมด</div>
+            </div>
+            <div class="row">
+                <mat-form-field class="sel" appearance="fill">
+                    <mat-select [(value)]="selected">
+                        <mat-option value="option">ทั้งหมด</mat-option>
+                        <mat-option value="option1">หมวดวิชาศึกษาทั่วไป</mat-option>
+                        <mat-option value="option2">หมวดวิชาเฉพาะ</mat-option>
+                        <mat-option value="option3">หมวดวิชาเลือกเสรี</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <table mdbTable class="tab">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr mdbTableCol *ngFor="let course of courses$ | async">
+                            <td scope="row">{{course.course_code}}</td>
+                            <td>{{course.course_name}}</td>
+                            <td>{{course.course_status}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

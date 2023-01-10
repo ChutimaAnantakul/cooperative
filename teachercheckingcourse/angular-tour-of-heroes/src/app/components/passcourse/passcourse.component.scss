@@ -1,0 +1,131 @@
+.mat-toolbar {
+    background: #004a9f;
+    color: white;
+}
+
+.mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: #002b5c;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.content {
+    height: auto;
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    background: #e6e9ed;
+    display: block;
+}
+
+.mat-sidenav-container {
+    height: calc(100vh - 65px);
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+
+    .mat-icon {
+        margin-right: 8px;
+    }
+}
+
+.avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: white;
+}
+
+.h1 {
+    font: 400 24px / 32px Roboto, "Helvetica Neue", sans-serif;
+    letter-spacing: normal;
+    margin: 0 0 16px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+p {
+    color: black;
+    text-align: left;
+    font-size: 50%;
+    padding-left: 30px;
+}
+
+.bu {
+    margin-left: 30px;
+    width: auto;
+}
+
+.tab {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 96%;
+    font-size: 55%;
+    color: black;
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 260px;
+    th {
+            background-color: #757677;
+            border: 1px solid #757677;
+          }
+          td {
+            border: 1px solid #dddddd;
+          }
+          td, th {
+            text-align: left;
+            padding: 8px;
+          }
+          
+          tr:nth-child(even) {
+            background-color: #dddddd;
+          }
+}
+
+.to {
+    color: black;
+    text-align: center;
+}
+
+.sel {
+    background-color: #e6e9ed;
+    font-size: 55%;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    margin-right: 50px;
+    width: 160px;
+}

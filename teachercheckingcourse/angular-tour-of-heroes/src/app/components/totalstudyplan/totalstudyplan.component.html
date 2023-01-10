@@ -1,0 +1,65 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+
+    ระบบตรวจสอบรายวิชาตกค้างของนักศึกษา
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <div *ngFor="let profile of profile$ | async | slice:1:2; let i=index">
+            <img class="avatar mat-elevation-z8" src="{{profile.teacher_img}}" />
+
+            <h4 class="name">{{profile.teacher_name}}</h4>
+            <h3 class="designation">{{profile.teacher_course}}</h3>
+        </div>
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="SubmitdDataOne()" routerLink="">
+            <mat-icon>profile</mat-icon>
+            <span>โปรไฟล์</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataTwo()" routerLink="">
+            <mat-icon>student</mat-icon>
+            <span>รายชื่อนักศึกษา</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataSeven()" routerLink="">
+            <mat-icon>studyplan</mat-icon>
+            <span>แผนการเรียน</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Log-out</span>
+        </button>
+
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <div class="p" *ngFor="let profile of profile$ | async | slice:1:2; let i=index">
+                <p>ชื่อ - สกุลอาจารย์ : {{profile.teacher_name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ตำแหน่ง :
+                    {{profile.teacher_position}} </p>
+            </div>
+
+            <hr>
+            <div class="fon" *ngFor="let sumplan of sumplan$ | async | slice:0:1; let i=index">
+                {{sumplan.studyplan_name}}</div>
+
+            <div class="row">
+                <img class="imgpic" *ngFor="let sumplan of sumplan$ | async | slice:0:1; let i=index"
+                    src="{{sumplan.studyplan_img}}">
+            </div>
+        </div>
+
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

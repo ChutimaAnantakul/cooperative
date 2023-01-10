@@ -1,0 +1,97 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+
+    ระบบตรวจสอบรายวิชาตกค้างของนักศึกษา
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <div *ngFor="let admin of admin$ | async">
+            <img class="avatar mat-elevation-z8" src="{{admin.admin_img}}" />
+
+            <h4 class="name">{{admin.admin_name}}</h4>
+            <!-- <p class="designation">{{admin.admin_position}}</p> -->
+        </div>
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="SubmitdDataO()" routerLink="">
+            <mat-icon>profile</mat-icon>
+            <span>โปรไฟล์</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataOne()" routerLink="">
+            <mat-icon>studyplan</mat-icon>
+            <span>สร้างแผนการเรียน</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataTwo()" routerLink="">
+            <mat-icon>course</mat-icon>
+            <span>รายวิชา</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataThree()" routerLink="">
+            <mat-icon>studentlist</mat-icon>
+            <span>รายชื่อนักศึกษา</span>
+        </button>
+        <button mat-button class="menu-button" (click)="SubmitdDataFour()" routerLink="">
+            <mat-icon>teacherlist</mat-icon>
+            <span>รายชื่ออาจารย์</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Log-out</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <div class="fon">รายชื่อนักศึกษา</div>
+            <button mat-raised-button class="bu" (click)="SubmitdDataSix()">
+                <mat-icon> add_comment</mat-icon> เพิ่มนักศึกษา
+            </button>
+            <div class="row">
+                <mat-form-field class="sel" appearance="fill">
+                    <mat-select [(value)]="selected">
+                        <mat-option value="option">แผนการศึกษา รหัส</mat-option>
+                        <mat-option value="option1">62</mat-option>
+                        <mat-option value="option2">63</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+            <div class="row">
+                <table mdbTable class="tab">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr mdbTableCol *ngFor="let list of lists$ | async ">
+                            <td scope="row">{{list.student_id}}</td>
+                            <td>{{list.student_code}}</td>
+                            <td>{{list.student_name}}</td>
+                            <td>{{list.student_class}}</td>
+                            <td>{{list.student_school_of}}</td>
+                            <td>{{list.student_course}}</td>
+                            <td>-</td>
+                            <td><button mat-raised-button class="bu" (click)="SubmitdDataSeven()">
+                                    <mat-icon> add_comment</mat-icon> เพิ่มเกรดปัจจุบัน
+                                </button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
